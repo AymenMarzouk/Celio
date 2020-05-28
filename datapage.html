@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CelioFiles</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="Styledatapage.css">
+
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+
+<h1 style="margin-top:150px;">Vous etes autoriser a voir ces fichiers <%= data.identifiant%> </h1>
+<div class="container">
+ <ul>
+    <% names.forEach(function( name){ %>
+	<%const a = ""+name.obj.Name %>
+
+	<% if (a.toString() === "undefined") { %>
+<li >  <a href="/download?file=<%= name.Name %>"><%= name.Name %></a></li>
+
+<% } else { %>
+
+        <li >  <a href="#"><%= name.Name %></a>
+		<ul>
+		<li ><a href="/download?file=<%= name.Name %>/<%= name.obj.Name %>"><%= name.obj.Name %></a></li>
+		</ul> 
+		</li>
+		<% } %>
+    <% }) %>
+ 
+    </ul>
+
+</div>
+</body>
+</html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="MultiNestedList.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
